@@ -1,8 +1,14 @@
-As an avid "Animal Crossing: New Horizon" fan I am on https://turnip.exchange/islands daily checking the current Turnip Prices.
+# Welcome fans of Turnip.Exchange!!!
 
-Initially I would manually grab the latest Turnip Prices manually, sort them and share them in our "Animal Crossing" Slack Channel at work.
+As an avid fan of "Animal Crossing: New Horizon" I find myself on [Turnip Exchange](https://turnip.exchange/islands) pretty much daily checking the current Turnip Prices.
 
-As an Automation Engineer I knew I could do so much better, so I created the following script that manipulates the UI and grabs the data I need.
+Initially I would manually grab the Turnip Prices, sort them using [CyberChef](https://gchq.github.io/CyberChef/#recipe=Sort('Line%20feed',false,'Alphabetical%20(case%20sensitive)')), manually generate a Slack message and share it in the "Animal Crossing" Slack Channel at work.
+
+As an Automation Engineer though, I knew I could do so much better, so I created the following Selenium based script that manipulates the UI and grabs the data I need.
+
+
+### PLEASE NOTE
+This is the ALPHA version of the script that prints out an array of the Turnip Prices ONLY. 
 
 
 # SETUP
