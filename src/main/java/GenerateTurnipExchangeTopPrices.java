@@ -197,7 +197,7 @@ public class GenerateTurnipExchangeTopPrices {
             driver.findElement(By.xpath("//button[contains(text(), 'All Island')]")).click();
             wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//button[contains(@class, 'bg-secondary-200') and contains(text(), 'All Islands')]")));
 
-            driver.findElement(By.xpath("//button[contains(text(), 'Other')]")).click();
+            driver.findElement(By.xpath("//button[contains(text(), 'Turnips')]")).click();
 
             List<WebElement> elements = driver.findElements(By.xpath("//div[contains(@class, 'note')]//p[contains(@class, 'ml')]"));
             print("Number of Islands: " + elements.size());
