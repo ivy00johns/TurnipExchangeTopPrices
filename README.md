@@ -22,3 +22,4 @@ As an Automation Engineer I knew I could do so much better, so I created the fol
     * Link to the Island queue
     * Island details
     * Current queue
+    * Only list the Top n # of Turnip Prices
