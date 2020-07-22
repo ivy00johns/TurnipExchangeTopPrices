@@ -14,6 +14,7 @@ import static java.lang.Integer.*;
 
 public class GenerateTurnipExchangeTopPrices {
     protected static final String TURNIP_EXCHANGE_URL        = "https://turnip.exchange/";
+    protected static final Integer MIN_TURNIP_PRICE          = 600;
 
     protected static final String RESOURCES_PATH             = "/src/main/resources/";
     protected static final String CHROMEDRIVER_ZIP_FILE_NAME = "chromedriver_mac64_83.0.4103.39.zip";
@@ -224,7 +225,7 @@ public class GenerateTurnipExchangeTopPrices {
             print("-------------------------------------------");
 
             for (String counter: initial_prices_list) {
-                if (Integer.parseInt(counter) >= 600) {
+                if (Integer.parseInt(counter) >= MIN_TURNIP_PRICE) {
                     print("- :ac-turnip: Price: " + counter + " :bells:");
                 }
             }

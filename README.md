@@ -18,14 +18,21 @@ This is the ALPHA version of the script that prints out an array of the Turnip P
 
 3. Example output:
 
-    * ```[196, 452, 554, 439, 456, 498, 356, 638, 330, 183, 523, 197, 480, 149, 355, 454, 190, 262, 109, 451, 575, 267, 288, 121, 166, 286, 518, 421, 133, 480]```
+    *   ```
+        Number of Islands: 117
+        
+        Turnip.Exchange prices over 600 :bells:
+        -------------------------------------------
+        - :ac-turnip: Price: 639 :bells:
+        - :ac-turnip: Price: 629 :bells:
+        - :ac-turnip: Price: 628 :bells:
+        - :ac-turnip: Price: 652 :bells:
+        ```
 
 
 # TODO
-
 * Retrieve additional details:
 
     * Link to the Island queue
     * Island details
     * Current queue
-    * Only list the Top n # of Turnip Prices
