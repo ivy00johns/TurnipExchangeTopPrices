@@ -230,7 +230,7 @@ public class GenerateTurnipExchangeTopPrices {
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
             print("-------------------------------------------");
-            print("Time: " + timestamp);
+            print("As of: " + timestamp);
         } catch (Exception e) {
             // Take a Screenshot at the end of the Test (Useful if it fails).
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
