@@ -188,7 +188,7 @@ public class GenerateTurnipExchangeTopPrices {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 30);
 
-            print("Goto the 'Turnip.Exchange' homepage.");
+            print("\nGoto the 'Turnip.Exchange' homepage.");
             driver.get(TURNIP_EXCHANGE_URL);
             wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//p[contains(text(), 'Support the community')]")));
 
