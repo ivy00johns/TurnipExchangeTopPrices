@@ -18,27 +18,26 @@ As an Automation Engineer though, I knew I could do so much better, so I created
 2. Run the `main()` function.
 
 3. Example output:
+    ```
+     Number of Islands: 111
 
-    *   ```
-        Number of Islands: 111
-
-        **Turnip.Exchange** prices over 600 :bells:
-        -------------------------------------------
-        - :ac-turnip: price: 649 :bells:
-        - :ac-turnip: price: 620 :bells:
-        -------------------------------------------
-        Time: 2020-07-22 16:18:35.374
-        ```
+     **Turnip.Exchange** prices over 600 :bells:
+     -------------------------------------------
+     - :ac-turnip: price: 649 :bells:
+     - :ac-turnip: price: 620 :bells:
+     -------------------------------------------
+     Time: 2020-07-22 16:18:35.374
+     ```
 
 # CUSTOMIZATION
-* You can customize the Turnip Price threshold and Slack Emojis that are used.
+You can customize the Turnip Price threshold and Slack Emojis that are used.
 
-    1. Open `src/main/java/GenerateTurnipExchangeTopPrices.java`.
+ 1. Open `src/main/java/GenerateTurnipExchangeTopPrices.java`.
 
-    2. Update the following variables:
-        * `MIN_TURNIP_PRICE`
-        * `TURNIP_SLACK_EMOJI_ALIAS`
-        * `BELLS_SLACK_EMOJI_ALIAS`
+ 2. Update the following variables:
+     * `MIN_TURNIP_PRICE`
+     * `TURNIP_SLACK_EMOJI_ALIAS`
+     * `BELLS_SLACK_EMOJI_ALIAS`
 
 # TODO
 * Retrieve additional details:
