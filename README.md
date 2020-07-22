@@ -9,6 +9,7 @@ As an Automation Engineer though, I knew I could do so much better, so I created
 
 ### PLEASE NOTE
 * This is the **ALPHA version** of the script. More details will be added.
+* You will need [Google Chrome](https://www.google.com/chrome/) `v81+`.
 
 
 # SETUP
