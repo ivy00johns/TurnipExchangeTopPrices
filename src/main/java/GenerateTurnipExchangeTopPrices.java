@@ -4,6 +4,7 @@ import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.support.ui.*;
 
 import java.io.*;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -226,9 +227,14 @@ public class GenerateTurnipExchangeTopPrices {
 
             for (String counter: initial_prices_list) {
                 if (Integer.parseInt(counter) >= MIN_TURNIP_PRICE) {
-                    print("- :ac-turnip: Price: " + counter + " :bells:");
+                    print("- :ac-turnip: price: " + counter + " :bells:");
                 }
             }
+
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
+            print("-------------------------------------------");
+            print("Time: " + timestamp);
         } catch (Exception e) {
             // Take a Screenshot at the end of the Test (Useful if it fails).
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
