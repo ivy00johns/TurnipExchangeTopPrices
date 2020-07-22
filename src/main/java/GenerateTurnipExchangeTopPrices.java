@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.*;
 
+import static java.lang.Integer.*;
+
 public class GenerateTurnipExchangeTopPrices {
     protected static final String TURNIP_EXCHANGE_URL        = "https://turnip.exchange/";
 
@@ -139,7 +141,7 @@ public class GenerateTurnipExchangeTopPrices {
         for(String stringValue : stringArray) {
             try {
                 //Convert String to Integer, and store it into integer array list.
-                result.add(Integer.parseInt(stringValue));
+                result.add(parseInt(stringValue));
             } catch(NumberFormatException nfe) {
                 //System.out.println("Could not parse " + nfe);
                 print("Parsing failed! " + stringValue + " can not be an integer");
@@ -150,7 +152,6 @@ public class GenerateTurnipExchangeTopPrices {
 
     public static void Get_Top_Turnip_Prices() throws IOException {
         WebDriver driver;
-        String accessToken = "";
 
         print("\n---------------- Start of Bearer Token Logic ---------------");
         print("------------------ Configuring ChromeDriver ----------------\n");
@@ -165,8 +166,8 @@ public class GenerateTurnipExchangeTopPrices {
         // Add the ChromeDriver Options
         ChromeOptions options = new ChromeOptions();
         options.addArguments(
-//                "--headless",
-//                "--disable-gpu",
+                "--headless",
+                "--disable-gpu",
                 "--window-size=1920,1200",
                 "--ignore-certificate-errors",
                 "--silent"
@@ -185,37 +186,48 @@ public class GenerateTurnipExchangeTopPrices {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 30);
 
+            print("Goto the 'Turnip.Exchange' homepage.");
             driver.get(TURNIP_EXCHANGE_URL);
             wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//p[contains(text(), 'Support the community')]")));
 
+            print("Close the 'Cookie' banner.");
             driver.findElement(By.cssSelector(".Cookie__button")).click();
             wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//p[contains(text(), 'Support the community')]")));
 
+            print("Click on 'Islands'.");
             driver.findElement(By.cssSelector(".note-list")).click();
             wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(".note")));
 
+            print("Click on 'All Islands'.");
             driver.findElement(By.xpath("//button[contains(text(), 'All Island')]")).click();
             wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//button[contains(@class, 'bg-secondary-200') and contains(text(), 'All Islands')]")));
 
+            print("Click on 'Turnips'.");
             driver.findElement(By.xpath("//button[contains(text(), 'Turnips')]")).click();
 
             List<WebElement> elements = driver.findElements(By.xpath("//div[contains(@class, 'note')]//p[contains(@class, 'ml')]"));
-            print("Number of Islands: " + elements.size());
+            print("\nNumber of Islands: " + elements.size() + "\n");
 
-            ArrayList<String> prices = new ArrayList<String>();
+            ArrayList<String> initial_prices_list = new ArrayList<String>();
 
             for (WebElement element : elements) {
-                System.out.println("Turnip Price: " + element.getText());
                 String StarterText = element.getText().replace(" Bells", "");
-
-                prices.add(StarterText);
+                initial_prices_list.add(StarterText);
             }
 
             // TODO: Grab price, description and URL.
-            // TODO: Sort based on prices.
             // TODO: Print necessary info.
-            Collections.sort(getIntegerArray(prices));
-            print(prices.toString());
+
+            Collections.sort(getIntegerArray(initial_prices_list));
+
+            print("Turnip.Exchange prices over 600 :bells:");
+            print("-------------------------------------------");
+
+            for (String counter: initial_prices_list) {
+                if (Integer.parseInt(counter) >= 600) {
+                    print("- :ac-turnip: Price: " + counter + " :bells:");
+                }
+            }
         } catch (Exception e) {
             // Take a Screenshot at the end of the Test (Useful if it fails).
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
