@@ -17,6 +17,9 @@ public class GenerateTurnipExchangeTopPrices {
     protected static final String TURNIP_EXCHANGE_URL        = "https://turnip.exchange/";
     protected static final Integer MIN_TURNIP_PRICE          = 600;
 
+    protected static final String TURNIP_SLACK_EMOJI_ALIAS   = ":ac-turnip:";
+    protected static final String BELLS_SLACK_EMOJI_ALIAS    = ":bells:";
+
     protected static final String RESOURCES_PATH             = "/src/main/resources/";
     protected static final String CHROMEDRIVER_ZIP_FILE_NAME = "chromedriver_mac64_83.0.4103.39.zip";
     protected static final String SELENIUM_ZIP_FILE_NAME     = "selenium-server-standalone-3.141.59.jar.zip";
@@ -92,10 +95,6 @@ public class GenerateTurnipExchangeTopPrices {
 
                 System.out.println("Unzip - " + newFile.getAbsoluteFile() + ": SUCCESS");
 
-                // Create all non-exists folders.
-                // Else you will hit FileNotFoundException for compressed folder.
-                //new File(newFile.getParent()).mkdirs();
-
                 FileOutputStream fos = new FileOutputStream(newFile);
 
                 int len;
@@ -109,7 +108,7 @@ public class GenerateTurnipExchangeTopPrices {
 
             zis.closeEntry();
             zis.close();
-        } catch (IOException e) {}
+        } catch (IOException ignored) {}
     }
 
     /**
@@ -146,7 +145,7 @@ public class GenerateTurnipExchangeTopPrices {
                 result.add(parseInt(stringValue));
             } catch(NumberFormatException nfe) {
                 //System.out.println("Could not parse " + nfe);
-                print("Parsing failed! " + stringValue + " can not be an integer");
+                print("Parsing failed! " + stringValue + " can not be an integer.");
             }
         }
         return result;
@@ -217,17 +216,14 @@ public class GenerateTurnipExchangeTopPrices {
                 initial_prices_list.add(StarterText);
             }
 
-            // TODO: Grab price, description and URL.
-            // TODO: Print necessary info.
-
             Collections.sort(getIntegerArray(initial_prices_list));
 
-            print("Turnip.Exchange prices over 600 :bells:");
+            print("Turnip.Exchange prices over " + MIN_TURNIP_PRICE + " " + BELLS_SLACK_EMOJI_ALIAS);
             print("-------------------------------------------");
 
             for (String counter: initial_prices_list) {
                 if (Integer.parseInt(counter) >= MIN_TURNIP_PRICE) {
-                    print("- :ac-turnip: price: " + counter + " :bells:");
+                    print("- " + TURNIP_SLACK_EMOJI_ALIAS + " price: " + counter + " " + BELLS_SLACK_EMOJI_ALIAS);
                 }
             }
 
