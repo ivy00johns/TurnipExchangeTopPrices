@@ -8,7 +8,7 @@ As an Automation Engineer though, I knew I could do so much better, so I created
 
 
 ### PLEASE NOTE
-This is the ALPHA version of the script that prints out an array of the Turnip Prices ONLY. 
+* This is the **ALPHA version** of the script. More details will be added.
 
 
 # SETUP
@@ -19,14 +19,14 @@ This is the ALPHA version of the script that prints out an array of the Turnip P
 3. Example output:
 
     *   ```
-        Number of Islands: 117
-        
-        Turnip.Exchange prices over 600 :bells:
+        Number of Islands: 111
+
+        **Turnip.Exchange** prices over 600 :bells:
         -------------------------------------------
-        - :ac-turnip: Price: 639 :bells:
-        - :ac-turnip: Price: 629 :bells:
-        - :ac-turnip: Price: 628 :bells:
-        - :ac-turnip: Price: 652 :bells:
+        - :ac-turnip: price: 649 :bells:
+        - :ac-turnip: price: 620 :bells:
+        -------------------------------------------
+        Time: 2020-07-22 16:18:35.374
         ```
 
 
